@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router";
 
 const NewsDetailsCard = ({ news }) => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
+
   return (
     <div>
         <div className="space-y-5">

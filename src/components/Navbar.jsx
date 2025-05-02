@@ -1,41 +1,57 @@
-import React, { use } from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import userIcon from "../assets/user.svg";
 import { AuthContext } from "../provider/AuthProvider";
+
 const Navbar = () => {
-  const { user, logOut } = use(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
   const handleLogOut = () => {
-    console.log("user trying to LogOut");
     logOut()
       .then(() => {
         alert("You Logged Out successfully");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
       });
   };
+
   return (
-    <div className="flex justify-between items-center">
-      <div className="">{user && user.email}</div>
-      <div className="nav flex gap-5 text-accent">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/career">Career</NavLink>
+    <nav className="flex md:justify-between justify-start flex-wrap items-center gap-4 sm:gap-0 py-4 px-4 sm:px-8">
+      {/* User Email (shown if logged in) */}
+      <div className="text-sm sm:text-base text-accent">
+        {user && user.email}
       </div>
-      <div className="login-btn flex gap-3 items-center">
-        <img className="w-12 rounded-full"
-          src={`${user ? user.photoURL : userIcon}`}
-          alt=""
+
+      {/* Navigation Links */}
+      <div className="flex flex-row gap-2 sm:gap-5 text-accent text-sm sm:text-base">
+        <NavLink to="/" className="hover:underline">Home</NavLink>
+        <NavLink to="/about" className="hover:underline">About</NavLink>
+        <NavLink to="/career" className="hover:underline">Career</NavLink>
+      </div>
+
+      {/* Profile and Auth Button */}
+      <div className="flex items-center gap-3">
+        <img
+          className="w-10 h-10 rounded-full object-cover"
+          src={user?.photoURL || userIcon}
+          alt="User"
         />
         {user ? (
-          <button onClick={handleLogOut} className="btn btn-primary px-10 ">
-            LogOut
+          <button
+            onClick={handleLogOut}
+            className="btn btn-primary btn-sm sm:px-6"
+          >
+            Log Out
           </button>
         ) : (
-          <Link to='/auth/login'><button className='text-xl font-semibold btn btn-primary rounded-none px-6'>Login</button></Link>
+          <Link to="/auth/login">
+            <button className="bg-primary text-white py-2 btn-sm text-sm sm:text-base px-8">
+              Login
+            </button>
+          </Link>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 

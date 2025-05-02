@@ -8,8 +8,11 @@ const FormInput = ({
   ...props
 }) => {
   return (
-    <div>
-      <label htmlFor={id} className="block text-sm font-medium text-gray-700 mb-1">
+    <div className="w-full">
+      <label
+        htmlFor={id}
+        className="block text-sm sm:text-base font-medium text-gray-700 mb-1 sm:mb-2"
+      >
         {label}
       </label>
       <div className="relative rounded-md shadow-sm">
@@ -21,10 +24,11 @@ const FormInput = ({
         <input
           id={id}
           className={`
-            block w-full px-4 py-3 ${icon ? 'pl-10' : ''} 
+            block w-full px-4 py-2 sm:py-3 ${icon ? 'pl-10' : ''} 
             bg-gray-50 border border-gray-300 rounded-md
             focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
             placeholder-gray-400
+            text-sm sm:text-base
             transition-all duration-200
             ${className}
           `}

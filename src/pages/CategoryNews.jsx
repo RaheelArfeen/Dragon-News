@@ -23,11 +23,9 @@ const CategoryNews = () => {
     }
   }, [id, data]);
 
-  // console.log(id, data);
-
   return (
     <div>
-      <h2 className="font-bold mb-5 text-xl font-semibold">
+      <h2 className="mb-5 text-xl font-semibold">
         Total <span className="text-secondary">{categoryNews.length}</span> news Found
       </h2>
 
