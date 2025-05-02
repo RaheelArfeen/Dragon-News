@@ -35,7 +35,7 @@ const Register = () => {
       setIsLoading(false)
 
       const name = form.name.value;
-      const photo = form.photo.value;
+      const photo = form.photoUrl.value;
       const email = form.email.value;
       const password = form.password.value;
       
@@ -85,8 +85,8 @@ const Register = () => {
             />
 
             <FormInput
-              id="photo"
-              name="photo"
+              id="photoUrl"
+              name="photoUrl"
               type="url"
               label="Photo URL"
               value={formData.photoUrl}
@@ -139,7 +139,7 @@ const Register = () => {
             <button
               type="submit"
               disabled={isLoading || !formData.acceptTerms}
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="group cursor-pointer relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <span className="flex items-center">

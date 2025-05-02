@@ -15,13 +15,13 @@ const NewsDetails = () => {
     setNews(newsDetails);
   }, [data, id]);
   return (
-    <div>
+    <div className="md:container mx-auto">
       <header className="py-3">
         <Header></Header>
       </header>
       <main className="w-11/12 mx-auto grid grid-cols-12 gap-5 py-10">
         <section className="col-span-9">
-          <h2 className="font-bold mb-5">News Details</h2>
+          <h2 className="font-bold mb-5">Dragon News</h2>
           <NewsDetailsCard news={news}></NewsDetailsCard>
         </section>
         <aside className="col-span-3">
